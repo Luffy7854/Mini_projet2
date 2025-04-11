@@ -1,0 +1,298 @@
+/* Styles généraux */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --success-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --neutral-color: #f1c40f;
+  --light-color: #ecf0f1;
+  --dark-color: #34495e;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1, h2, h3 {
+  color: var(--secondary-color);
+  margin-bottom: 15px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--primary-color);
+  padding-bottom: 15px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  border-left: 5px solid var(--primary-color);
+  padding-left: 10px;
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-top: 20px;
+}
+
+/* Sections */
+.section {
+  background-color: white;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  box-shadow: var(--shadow);
+}
+
+/* Boutons */
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Bouton de connexion spécial */
+#connectButton {
+  background-color: var(--secondary-color);
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#connectButton:hover {
+  background-color: #1a2530;
+}
+
+/* Informations de compte */
+#accountInfo, #networkInfo {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#accountInfo {
+  color: var(--secondary-color);
+  word-break: break-all;
+}
+
+#networkInfo {
+  color: var(--primary-color);
+}
+
+/* Formulaires */
+input, select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 5px 0 15px;
+  width: 100%;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.25);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Section des résolutions */
+.resolution {
+  background-color: rgba(236, 240, 241, 0.5);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.resolution strong {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+.resolution em {
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.voteBtn {
+  background-color: var(--success-color);
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.voteBtn:hover {
+  background-color: #27ae60;
+}
+
+/* Détails de vote */
+.vote-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.vote-count {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 10px;
+  text-align: center;
+  min-width: 80px;
+}
+
+.vote-pour {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #27ae60;
+}
+
+.vote-contre {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #c0392b;
+}
+
+.vote-neutre {
+  background-color: rgba(241, 196, 15, 0.2);
+  color: #d35400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  .section {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Statut de la résolution */
+.status-badge {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-left: 10px;
+}
+
+.active {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: #27ae60;
+}
+
+.closed {
+  background-color: rgba(231, 76, 60, 0.2);
+  color: #c0392b;
+}
+
+/* Animation pour le chargement des données */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Rôles utilisateur */
+#roleInfo {
+  padding: 10px;
+  background-color: rgba(52, 152, 219, 0.1);
+  border-radius: 5px;
+  white-space: pre-line;
+}
+
+/* Sections admin */
+#adminSection, #scrutateurSection {
+  border-top: 3px solid var(--primary-color);
+}
+
+/* Améliorations pour les boutons admin */
+#addResolutionButton {
+  background-color: var(--success-color);
+}
+
+#updateWhitelistButton {
+  background-color: var(--primary-color);
+}
+
+#updateRolesButton {
+  background-color: var(--secondary-color);
+}
+
+#transferSecretaryButton {
+  background-color: var(--neutral-color);
+  color: var(--dark-color);
+}
+
+#closeResolutionButton {
+  background-color: var(--danger-color);
+}
+
+/* Autres améliorations stylistiques */
+.section > div {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.section > div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}

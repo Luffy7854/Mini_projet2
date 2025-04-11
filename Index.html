@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vote Électronique – Interface</title>
+  <!-- Directive CSP : autorise uniquement les sources externes depuis 'self' et le CDN de jsdelivr -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self';">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chargement d'ethers.js depuis le CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js" defer></script>
+  <!-- Notre script principal qui gère toutes les interactions avec le smart contract -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Vote Électronique – Interface Front-end</h1>
+
+  <!-- Section de connexion -->
+  <div class="section">
+    <button id="connectButton">Se connecter avec MetaMask</button>
+    <p id="accountInfo"></p>
+    <p id="networkInfo"></p>
+  </div>
+
+  <!-- Section des rôles -->
+  <div class="section" id="roleSection" style="display:none;">
+    <h2>Vos Rôles</h2>
+    <p id="roleInfo"></p>
+  </div>
+
+  <!-- Section affichant la liste des résolutions et le formulaire de vote -->
+  <div class="section" id="resolutionsSection" style="display:none;">
+    <h2>Liste des Résolutions</h2>
+    <div id="resolutionsList"></div>
+  </div>
+
+  <!-- Section Administration (accessible uniquement au Secrétaire / Owner) -->
+  <div class="section" id="adminSection" style="display:none;">
+    <h2>Administration (Secrétaire)</h2>
+    <!-- Ajouter une résolution -->
+    <div>
+      <h3>Ajouter une Résolution</h3>
+      <label for="resTitle">Titre de la résolution :</label>
+      <input type="text" id="resTitle" placeholder="Titre de la résolution">
+      <button id="addResolutionButton">Ajouter</button>
+    </div>
+    <!-- Mettre à jour la liste blanche -->
+    <div>
+      <h3>Modifier la Liste Blanche</h3>
+      <label for="whitelistAddress">Adresse du votant :</label>
+      <input type="text" id="whitelistAddress" placeholder="0x...">
+      <label for="whitelistStatus">Statut (true = autorisé, false = non autorisé) :</label>
+      <select id="whitelistStatus">
+        <option value="true">true</option>
+        <option value="false">false</option>
+      </select>
+      <button id="updateWhitelistButton">Mettre à jour</button>
+    </div>
+    <!-- Mettre à jour les rôles (Président & Scrutateur) -->
+    <div>
+      <h3>Mettre à Jour les Rôles (Président & Scrutateur)</h3>
+      <label for="newPresident">Nouvelle adresse Président :</label>
+      <input type="text" id="newPresident" placeholder="0x...">
+      <label for="newScrutateur">Nouvelle adresse Scrutateur :</label>
+      <input type="text" id="newScrutateur" placeholder="0x...">
+      <button id="updateRolesButton">Mettre à jour les rôles</button>
+    </div>
+    <!-- Transférer le secrétariat -->
+    <div>
+      <h3>Transférer le Secrétariat</h3>
+      <label for="newSecretary">Nouvelle adresse Secrétaire :</label>
+      <input type="text" id="newSecretary" placeholder="0x...">
+      <button id="transferSecretaryButton">Transférer</button>
+    </div>
+  </div>
+
+  <!-- Section pour le Scrutateur (actions spécifiques au rôle) -->
+  <div class="section" id="scrutateurSection" style="display:none;">
+    <h2>Actions du Scrutateur</h2>
+    <!-- Clôturer une résolution -->
+    <div>
+      <h3>Clôturer une Résolution</h3>
+      <label for="closeResolutionId">ID de la résolution :</label>
+      <input type="number" id="closeResolutionId" placeholder="ID">
+      <button id="closeResolutionButton">Clôturer</button>
+    </div>
+  </div>
+</body>
+</html>
